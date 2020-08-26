@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {registry} from '@jahia/ui-extender';
-import {Studio, OpenInNew} from "@jahia/moonstone";
+import {Studio, OpenInNew} from '@jahia/moonstone';
 
 export const registerAdminRoute = () => {
     registry.add('adminRoute', 'studio', {

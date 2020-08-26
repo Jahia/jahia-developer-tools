@@ -5,7 +5,7 @@ import {Accordion, AccordionItem, LayoutModule, SecondaryNav, SecondaryNavHeader
 import {useTranslation} from 'react-i18next';
 import {Route, Switch} from 'react-router';
 import PropTypes from 'prop-types';
-import {Build} from "@jahia/moonstone";
+import {Build} from '@jahia/moonstone';
 
 const getPageId = match => {
     let matchByRoute = registry.find({type: 'adminRoute', route: match.url});
@@ -59,11 +59,11 @@ export const DeveloperTools = ({match}) => {
                                       onClickItem={
                                           (app, event, toggleNode) => {
                                               if (app.isSelectable) {
-                                                  history.push(app.route || ('/developerTools/' + app.id))
+                                                  history.push(app.route || ('/developerTools/' + app.id));
                                               } else if (app.onClick) {
                                                   app.onClick();
                                               } else {
-                                                  toggleNode(event)
+                                                  toggleNode(event);
                                               }
                                           }
                                       }/>
@@ -73,9 +73,13 @@ export const DeveloperTools = ({match}) => {
             }
             content={
                 <Switch>
-                    {filteredRoutes.map(r =>
-                        <Route key={r.key} exact strict path={r.route || '/developerTools/' + r.key}
+                    {filteredRoutes.map(r => (
+                        <Route key={r.key}
+                               exact
+                               strict
+                               path={r.route || '/developerTools/' + r.key}
                                render={props => r.render(props)}/>
+                      )
                     )}
                 </Switch>
             }
