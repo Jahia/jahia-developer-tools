@@ -2,7 +2,7 @@ import React from 'react';
 import {useHistory} from 'react-router';
 import {useTranslation} from 'react-i18next';
 import {PrimaryNavItem} from '@jahia/moonstone';
-import {Feather} from '@jahia/moonstone';
+import {DevTools} from '@jahia/moonstone';
 import {useSelector} from 'react-redux';
 
 export const DeveloperToolsPrimaryNavItem = () => {
@@ -18,7 +18,7 @@ export const DeveloperToolsPrimaryNavItem = () => {
         <PrimaryNavItem role="developerTools-menu-item"
                         isSelected={history.location.pathname.startsWith('/developerTools')}
                         label={t('label')}
-                        icon={<Feather/>}
+                        icon={<DevTools/>}
                         onClick={() => {
                             history.push(route);
                         }}/>

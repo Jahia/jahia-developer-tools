@@ -24,7 +24,6 @@ const getPageId = match => {
 export const DeveloperTools = ({match}) => {
     const history = useHistory();
     const {t} = useTranslation('jahia-developer-tools');
-    const itemId = 'myWorkspace';
 
     const selectedPage = getPageId(match);
     const {tree, routes, defaultOpenedItems} = useAdminRouteTreeStructure('developerTools', selectedPage);
@@ -35,7 +34,9 @@ export const DeveloperTools = ({match}) => {
             label: t(route.label),
             isSelectable: route.isSelectable,
             iconStart: route.icon,
+            iconEnd: route.iconEnd,
             route: route.route,
+            onClick: route.onClick,
             treeItemProps: {
                 'data-sel-role': route.key
             }
@@ -49,18 +50,22 @@ export const DeveloperTools = ({match}) => {
         <LayoutModule
             navigation={
                 <SecondaryNav header={<SecondaryNavHeader>{t('label')}</SecondaryNavHeader>}>
-                    <Accordion isReversed openedItem={itemId}>
-                        <AccordionItem id="my-tools" label={t('myTools')} icon={<Build/>}>
+                    <Accordion isReversed openedItem="myTools">
+                        <AccordionItem id="myTools" label={t('myTools')} icon={<Build/>}>
                             <TreeView isReversed
                                       data={data}
                                       selectedItems={[selectedPage]}
                                       defaultOpenedItems={defaultOpenedItems}
                                       onClickItem={
-                                          (app, event, toggleNode) => (
-                                              app.isSelectable ?
-                                                  history.push(app.route || ('/developerTools/' + app.id)) :
+                                          (app, event, toggleNode) => {
+                                              if (app.isSelectable) {
+                                                  history.push(app.route || ('/developerTools/' + app.id))
+                                              } else if (app.onClick) {
+                                                  app.onClick();
+                                              } else {
                                                   toggleNode(event)
-                                          )
+                                              }
+                                          }
                                       }/>
                         </AccordionItem>
                     </Accordion>
