@@ -5,7 +5,7 @@ import {combineReducers} from 'redux';
 export const {devToolsSetPath} = createActions('DEV_TOOLS_SET_PATH');
 
 const extractParamsFromUrl = pathname => {
-    if (pathname.startsWith('/devtools')) {
+    if (pathname.startsWith('/developerTools')) {
         let path = decodeURIComponent(pathname);
         return {path};
     }
@@ -19,7 +19,7 @@ export const developerToolsRedux = () => {
     const currentValueFromUrl = extractParamsFromUrl(pathName);
     const pathReducer = handleActions({
         [devToolsSetPath]: (state, action) => action.payload,
-        '@@router/LOCATION_CHANGE': (state, action) => action.payload.location.pathname.startsWith('/devtools') ? extractParamsFromUrl(action.payload.location.pathname).path : state
+        '@@router/LOCATION_CHANGE': (state, action) => action.payload.location.pathname.startsWith('/developerTools') ? extractParamsFromUrl(action.payload.location.pathname).path : state
     }, currentValueFromUrl.path);
 
     registry.add('redux-reducer', 'developerTools', {
