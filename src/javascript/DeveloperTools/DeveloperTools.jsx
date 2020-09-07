@@ -1,5 +1,6 @@
 import React from 'react';
 import {registry, useAdminRouteTreeStructure} from '@jahia/ui-extender';
+import {useNodeInfo} from '@jahia/data-helper';
 import {useHistory} from 'react-router-dom';
 import {Accordion, AccordionItem, LayoutModule, SecondaryNav, SecondaryNavHeader, TreeView} from '@jahia/moonstone';
 import {useTranslation} from 'react-i18next';
@@ -26,9 +27,13 @@ export const DeveloperTools = ({match}) => {
     const {t} = useTranslation('jahia-developer-tools');
 
     const selectedPage = getPageId(match);
-    const {tree, routes, defaultOpenedItems} = useAdminRouteTreeStructure('developerTools', selectedPage);
+    const {tree, routes, defaultOpenedItems, allPermissions} = useAdminRouteTreeStructure('developerTools', selectedPage);
+    const {node} = useNodeInfo({path: '/'}, {
+        getPermissions: allPermissions
+    });
 
     const data = tree
+        .filter(route => route.requiredPermission === undefined || (node && (node[route.requiredPermission] !== false)))
         .map(route => ({
             id: route.key,
             label: t(route.label),
@@ -37,6 +42,7 @@ export const DeveloperTools = ({match}) => {
             iconEnd: route.iconEnd,
             route: route.route,
             onClick: route.onClick,
+            requiredPermission: route.requiredPermission,
             treeItemProps: {
                 'data-sel-role': route.key
             }
@@ -44,6 +50,7 @@ export const DeveloperTools = ({match}) => {
         .getData();
 
     const filteredRoutes = routes && routes
+        .filter(route => route.requiredPermission === undefined || (node && (node[route.requiredPermission] !== false)))
         .filter(route => route.isSelectable && route.render);
 
     return (
