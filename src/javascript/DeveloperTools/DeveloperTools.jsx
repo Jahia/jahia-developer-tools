@@ -28,12 +28,12 @@ export const DeveloperTools = ({match}) => {
 
     const selectedPage = getPageId(match);
     const {tree, routes, defaultOpenedItems, allPermissions} = useAdminRouteTreeStructure('developerTools', selectedPage);
-    const {node} = useNodeInfo({path: '/'}, {
+    const {nodes} = useNodeInfo({paths: ['/', '/modules']}, {
         getPermissions: allPermissions
     });
 
     const data = tree
-        .filter(route => route.requiredPermission === undefined || (node && (node[route.requiredPermission] !== false)))
+        .filter(route => route.requiredPermission === undefined || (nodes && (nodes.find(node => node[route.requiredPermission] !== false))))
         .map(route => ({
             id: route.key,
             label: t(route.label),
@@ -50,7 +50,7 @@ export const DeveloperTools = ({match}) => {
         .getData();
 
     const filteredRoutes = routes && routes
-        .filter(route => route.requiredPermission === undefined || (node && (node[route.requiredPermission] !== false)))
+        .filter(route => route.requiredPermission === undefined || (nodes && (nodes.find(node => node[route.requiredPermission] !== false))))
         .filter(route => route.isSelectable && route.render);
 
     return (
