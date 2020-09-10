@@ -8,6 +8,7 @@ export const registerAdminRoute = () => {
         targets: ['developerTools:10'],
         icon: <Studio/>,
         iconEnd: <OpenInNew/>,
+        requiredPermission: 'studioModeAccess',
         label: 'jahia-developer-tools:studio',
         isSelectable: false,
         onClick: () => window.open(window.contextJsParameters.contextPath + '/cms/studio/default/en/settings.manageModules.html')
