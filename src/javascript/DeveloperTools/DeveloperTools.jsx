@@ -7,6 +7,7 @@ import {useTranslation} from 'react-i18next';
 import {Route, Switch} from 'react-router';
 import PropTypes from 'prop-types';
 import {Build} from '@jahia/moonstone';
+import DeveloperToolsEmpty from './DeveloperTools.empty';
 
 const getPageId = match => {
     let matchByRoute = registry.find({type: 'adminRoute', route: match.url});
@@ -88,6 +89,7 @@ export const DeveloperTools = ({match}) => {
                                render={props => r.render(props)}/>
                       )
                     )}
+                    <Route exact strict path="/developerTools" component={DeveloperToolsEmpty}/>
                 </Switch>
             }
         />
