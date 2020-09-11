@@ -1,5 +1,6 @@
 {
   "label": "Entwickler Tools",
   "myTools": "Meine Tools",
-  "studio": "Studio"
+  "studio": "Studio",
+  "about": "Alle Tools, die für Entwicklung zur Verfügung stehen: Studio, graphQL, SDL Bericht Tool, SDL Generations Tools, JWT Konfiguration..."
 }
