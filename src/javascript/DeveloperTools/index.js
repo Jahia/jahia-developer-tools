@@ -1,5 +1,7 @@
 import {registerDeveloperTools} from './register';
 import {developerToolsRedux} from './DeveloperTools.redux';
 
-developerToolsRedux();
-registerDeveloperTools();
+if (window.contextJsParameters.config.operatingMode === 'development') {
+    developerToolsRedux();
+    registerDeveloperTools();
+}
