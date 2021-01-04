@@ -1,6 +1,6 @@
 {
-  "label": "Developer tools",
-  "myTools": "My tools",
+  "label": "Developer Tools",
+  "myTools": "My Tools",
   "studio": "Studio",
-  "about": "All the tools available for development : studio, graphQL, SDL Report Tool, SDL Generator Tools, JWT Configuration..."
+  "about": "Here you can open Studio, use the GraphQL playground and SDL tools, and generate JWT tokens"
 }
