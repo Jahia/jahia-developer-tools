@@ -24,13 +24,10 @@
 Jahia Developer Tools
 ======================
 
-<!--
-    Open Source badges, see https://shields.io/
--->
+This module provides the "Developer Tools" left menu entry in Jahia 8, which is used to provide links to useful tools like GraphQL Playground or Studio.
 
-## Presentation
-<!-- 
-    (Optional) Technical presentation of the project
--->
+## Open-Source
+
+This is an Open-Source module, you can find more details about Open-Source @ Jahia [in this repository](https://github.com/Jahia/open-source).
 
 
