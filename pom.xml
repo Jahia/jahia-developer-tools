@@ -32,7 +32,8 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
     <properties>
         <jahia-module-type>system</jahia-module-type>
         <yarn.arguments>build:production</yarn.arguments>
-        <jahia-module-signature>MCwCFC3Bald2yJsvTUWfoi1Ykec4gkTqAhRIoSsb6yRBEBdG0luGZv0RkUHpsw==</jahia-module-signature>
+        <jahia-depends>jahia-ui-root</jahia-depends>
+        <jahia-module-signature>MCwCFGWee6ZoLSMBtm92f0Y6R+v21tuZAhR6oCeRXU0vO2iduQDKykuBF7HwHQ==</jahia-module-signature>
     </properties>
 
     <repositories>
@@ -49,17 +50,6 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
             </snapshots>
         </repository>
     </repositories>
-
-    <dependencies>
-        <dependency>
-            <groupId>org.jahia.modules</groupId>
-            <artifactId>app-shell</artifactId>
-            <version>2.0.0</version>
-            <type>json</type>
-            <classifier>manifest</classifier>
-            <scope>provided</scope>
-        </dependency>
-    </dependencies>
 
     <build>
         <resources>
@@ -94,8 +84,8 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
                             <goal>install-node-and-yarn</goal>
                         </goals>
                         <configuration>
-                            <nodeVersion>v12.16.2</nodeVersion>
-                            <yarnVersion>v1.22.4</yarnVersion>
+                            <nodeVersion>v14.17.3</nodeVersion>
+                            <yarnVersion>v1.22.19</yarnVersion>
                         </configuration>
                     </execution>
                     <execution>
@@ -117,30 +107,6 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>copy</id>
-                        <phase>initialize</phase>
-                        <goals>
-                            <goal>copy</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <artifactItems>
-                        <artifactItem>
-                            <groupId>org.jahia.modules</groupId>
-                            <artifactId>app-shell</artifactId>
-                            <type>json</type>
-                            <classifier>manifest</classifier>
-                        </artifactItem>
-                    </artifactItems>
-                </configuration>
-            </plugin>
-
         </plugins>
     </build>
     <profiles>

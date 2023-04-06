@@ -15,17 +15,17 @@
     "watch": "yarn webpack --watch",
     "webpack": "node --max_old_space_size=2048 ./node_modules/webpack/bin/webpack.js",
     "build:analyze": "yarn build --analyze",
-    "build:production": "yarn build -p",
-    "build:production-analyze": "yarn build -p --analyze",
+    "build:production": "yarn build --mode=production",
+    "build:production-analyze": "yarn build --mode=production --analyze",
     "clean": "rimraf *.log src/main/resources/javascript/apps",
     "clean:all": "yarn clean && rimraf node_modules node",
     "lint": "eslint --ext js,jsx,json .",
     "lint:fix": "eslint --ext js,jsx,json --fix ."
   },
   "dependencies": {
-    "@jahia/data-helper": "^0.0.24",
-    "@jahia/moonstone": "^0.16.1",
-    "@jahia/ui-extender": "^0.4.19",
+    "@jahia/data-helper": "^1.0.7",
+    "@jahia/moonstone": "^2.5.7",
+    "@jahia/ui-extender": "^1.0.6",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-i18next": "^11.7.1",
@@ -44,14 +44,16 @@
     "@jahia/eslint-config": "^1.1.0",
     "@jahia/stylelint-config": "^0.0.3",
     "@jahia/test-framework": "^1.2.0",
+    "@jahia/webpack-config": "^1.0.0",
     "babel-loader": "^8.1.0",
-    "eslint": "^7.7.0",
+    "copy-webpack-plugin": "^11.0.0",
+    "eslint": "^8.37.0",
     "eslint-plugin-jest": "^23.20.0",
     "eslint-plugin-json": "^2.1.2",
     "eslint-plugin-react": "^7.20.6",
     "eslint-plugin-react-hooks": "^4.1.0",
-    "webpack": "^4.44.1",
-    "webpack-bundle-analyzer": "^3.8.0",
-    "webpack-cli": "^3.3.12"
+    "webpack": "^5.78.0",
+    "webpack-bundle-analyzer": "^4.8.0",
+    "webpack-cli": "^5.0.1"
   }
 }
