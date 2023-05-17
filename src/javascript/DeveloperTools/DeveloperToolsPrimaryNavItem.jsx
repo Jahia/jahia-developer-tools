@@ -6,7 +6,7 @@ import {DevTools} from '@jahia/moonstone';
 import {useSelector} from 'react-redux';
 import {useNodeInfo} from '@jahia/data-helper';
 
-export const DeveloperToolsPrimaryNavItem = () => {
+export const DeveloperToolsPrimaryNavItem = props => {
     const history = useHistory();
     const {t} = useTranslation('jahia-developer-tools');
     const current = useSelector(state => ({lastVisitedPath: state.developerTools.path}));
@@ -21,7 +21,7 @@ export const DeveloperToolsPrimaryNavItem = () => {
 
     if (nodes && (nodes.find(node => node.developerToolsAccess === true || node.studioModeAccess === true))) {
         return (
-            <PrimaryNavItem role="developerTools-menu-item"
+            <PrimaryNavItem {...props}
                             isSelected={history.location.pathname.startsWith('/developerTools')}
                             label={t('label')}
                             icon={<DevTools/>}
