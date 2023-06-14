@@ -33,7 +33,7 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
         <jahia-module-type>system</jahia-module-type>
         <yarn.arguments>build:production</yarn.arguments>
         <jahia-depends>jahia-ui-root</jahia-depends>
-        <jahia-module-signature>MCwCFGWee6ZoLSMBtm92f0Y6R+v21tuZAhR6oCeRXU0vO2iduQDKykuBF7HwHQ==</jahia-module-signature>
+        <jahia-module-signature>MCwCFFCTccn8KHMzrVSwMZLzuDS5ZxS0AhRHCEgC8A5b/A/1cbWYf4LGvi8iUw==</jahia-module-signature>
     </properties>
 
     <repositories>
