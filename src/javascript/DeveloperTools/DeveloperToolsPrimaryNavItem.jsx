@@ -9,10 +9,10 @@ import {useNodeInfo} from '@jahia/data-helper';
 export const DeveloperToolsPrimaryNavItem = props => {
     const history = useHistory();
     const {t} = useTranslation('jahia-developer-tools');
-    const current = useSelector(state => ({lastVisitedPath: state.developerTools.path}));
+    const current = useSelector(state => state.developerTools.path);
     let route = '/developerTools';
-    if (current.lastVisitedPath !== '') {
-        route = current.lastVisitedPath;
+    if (current !== '') {
+        route = current;
     }
 
     const {nodes} = useNodeInfo({paths: ['/', '/modules']}, {
