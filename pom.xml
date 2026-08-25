@@ -34,7 +34,6 @@ THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR I
         <yarn.arguments>build:production</yarn.arguments>
         <jahia-depends>jahia-ui-root</jahia-depends>
         <jahia-module-signature>MCwCFFCTccn8KHMzrVSwMZLzuDS5ZxS0AhRHCEgC8A5b/A/1cbWYf4LGvi8iUw==</jahia-module-signature>
-        <sonar.sources>src/javascript</sonar.sources>
     </properties>
 
     <repositories>
